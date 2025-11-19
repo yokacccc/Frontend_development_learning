@@ -25,6 +25,11 @@ body {
     box-shadow: 0 25px 25px rgba(0, 0, 0, 0.0476518);
 }
 
+.text-content {
+    padding: 0 16px;
+    margin-top: 8px;
+}
+
 img {
     width: 100%;
     display: block;
@@ -35,15 +40,15 @@ img {
 .title {
     font-size: 22px;
     font-weight: 700;
-    color: #333333;
+    color: #1f3251;
     text-align: center;
 }
 
 .description {
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 400;
     font-family: 'Outfit', sans-serif; 
-    color: #68778d;
+    color: hsl(216, 15%, 48%);
     margin: 12px 0;
     text-align: center;
 }
