@@ -1,0 +1,21 @@
+# .github/workflows/deploy.yml
+name: 发布整个仓库为静态网站
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:        # 允许手动触发
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 直接发布整个仓库内容到 GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./                     # 发布根目录所有文件
+          force_orphan: true                  # 保持 gh-pages 分支干净
+          exclude_assets: '.github,.git,README.md,node_modules'  # 不发布这些
