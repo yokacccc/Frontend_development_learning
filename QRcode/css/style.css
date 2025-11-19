@@ -47,3 +47,10 @@ img {
     margin: 12px 0;
     text-align: center;
 }
+
+@media (min-width: 1440px) {
+    .card {
+        max-width: 320px;
+    }
+    
+}
