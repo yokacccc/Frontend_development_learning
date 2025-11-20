@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    font-family: "Figtree", sans-serif;
+    background-color: #F4D04E;
+
+    display: flex;  /* 开启flex */
+    justify-content:center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    height: 100vh; /* 视口高度 */
+}
+
+.card {
+    background-color: white;
+    width: 327px;
+    border-radius: 20px;
+    border: solid 1px black;
+    box-shadow: 8px 8px 0px 0px black;
+}
+
+.text-content {
+    padding: 20px;
+    padding-bottom: 0;
+}
+
+.text-block {
+    background-color: #F4D04E;
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 4px;
+}
+
+.text-content h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.5;
+    letter-spacing: 0px;
+}
+
+.text-block h2 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.5;
+    letter-spacing: 0px;
+}
+
+.text-content p {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0px;
+    color: hsl(0, 0%, 42%)
+}
+
+.image-banner {
+    display: block;
+    margin: 0;
+    padding: 20px 20px 0px 20px;
+}
+
+.image-banner img {
+    display: block;
+    border-radius: 10 px;
+    width: 100%;
+    height: auto;
+}
+
+.text-content .text-black {
+    color: hsl(0, 0%, 7%);
+}
+
+.profile {
+    padding: 20px;
+    display: flex;
+}
+
+.profile img {
+    height: 32px;
+    width: 32px;
+    margin-right: 10px;
+}
+
+.profile h3 {
+    display: flex;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+    color: hsl(0, 0%, 7%);
+    align-items: center;
+}
+
+@media (min-width: 1440px) {
+    .card {
+        width: 384px;
+    }
+}
