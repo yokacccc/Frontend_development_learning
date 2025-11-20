@@ -1,0 +1,96 @@
+body {
+    font-family: "Inter", sans-serif;
+    background-color: #141414;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.card {
+    background-color: #1F1F1F;
+    width: 327px;
+    padding: 24px;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;   /* 垂直排列 - li 不会横排 */
+    align-items: center;   
+}
+
+.profile-info img {
+    display: block;
+    border-radius: 50%;
+    height: 88px;
+    width: 88px;
+    margin: 0 auto;
+}
+
+.profile-info h1 {
+    color: white;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.5;
+    letter-spacing: 0;
+    text-align: center;
+    margin: 20px 0 0 0;
+}
+
+.profile-info h2 {
+    color: #C4F82A;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: 0;
+    text-align: center;
+    margin: 0;
+}
+
+.profile-info p {
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.5;
+    letter-spacing: 0;
+    margin-top: 24px;
+}
+
+.social-links{
+    margin:24px auto 0px auto;
+    padding: 0px;
+    width: 279px;
+    
+}
+
+.social-links li {
+    list-style-type: none;
+    text-align: center;
+    margin: 16px 0px 0px 0px;
+    padding: 12px 0px 12px 0px;
+    border-radius: 8px;
+    background-color: #333333;
+}
+
+.social-links li a {
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 700;
+    color:white;
+    text-decoration: none;
+}
+
+@media (min-width: 1440px) {
+    .card {
+        width: 304px;
+        padding: 40px;
+    }
+    .social-links{
+        width:  304px;
+        padding: 0px;
+        margin:24px 0px 0px 0px;
+    }
+    .social-links li {
+        text-align: center;
+    }
+}
