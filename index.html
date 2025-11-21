@@ -4,31 +4,179 @@
   <meta charset="utf-8">
   <title>yokacccc 的前端作品集</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    body { font-family: system-ui, sans-serif; margin: 40px auto; max-width: 900px; line-height: 1.7; background: #f6f8fa; color: #24292f; }
-    h1 { text-align: center; }
-    .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-    .card { background: white; padding: 24px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; }
-    a { color: #0969da; text-decoration: none; font-size: 18px; font-weight: 600; }
-    a:hover { text-decoration: underline; }
-    footer { text-align: center; margin-top: 60px; color: #666; font-size: 14px; }
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --primary: #3b82f6;
+      --gray: #64748b;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      margin-bottom: 40px;
+      border-radius: 0 0 20px 20px;
+    }
+
+    h1 {
+      margin: 0 0 12px 0;
+      font-size: 2.8rem;
+      font-weight: 700;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* 强制两列 + 响应式 */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-bottom: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      h1 { font-size: 2.2rem; }
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      min-height: 180px;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    .card a {
+      color: var(--text);
+      text-decoration: none;
+      padding: 32px 20px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .card-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+      color: var(--primary);
+    }
+
+    .card h3 {
+      margin: 0 0 8px 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #94a3b8;
+      font-size: 0.95rem;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .update-time {
+      margin-top: 8px;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
-  <h1>我的前端学习作品集</h1>
-  <p style="text-align:center">点击下面卡片直接在线运行项目（全部实时部署）</p>
+  <header>
+    <div class="container">
+      <h1>yokacccc 的前端作品集</h1>
+      <p>点击卡片直接在线预览项目</p>
+    </div>
+  </header>
 
-  <div class="grid">
-    <!-- 把下面这些改成你自己实际的文件夹名就行 -->
-    <div class="card"><a href="QRcode" target="_blank">QRcode</a></div>
-    <div class="card"><a href="Blog-card" target="_blank">Blog card</a></div>
-    <div class="card"><a href="Social-links-profile" target="_blank">Social links profile</a></div>
-    <!-- 有更多项目就继续复制一行加进来 -->
+  <div class="container">
+    <div class="grid">
+      <!-- 下面这些项目请根据你实际文件夹名和描述修改 -->
+      <div class="card">
+        <a href="QRcode" target="_blank">
+          <div class="card-icon"><i class="fas fa-qrcode"></i></div>
+          <h3>QRcode 生成器</h3>
+          <p>动态二维码生成与自定义样式</p>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="Blog-card" target="_blank">
+          <div class="card-icon"><i class="fas fa-newspaper"></i></div>
+          <h3>Blog Card</h3>
+          <p>响应式博客预览卡片组件</p>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="Social-links-profile" target="_blank">
+          <div class="card-icon"><i class="fas fa-user-circle"></i></div>
+          <h3>Social Links Profile</h3>
+          <p>个人社交链接展示页面</p>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="Recipe-page" target="_blank">
+          <div class="card-icon"><i class="fas fa-utensils"></i></div>
+          <h3>Recipe Page</h3>
+          <p>精美响应式菜谱页面设计</p>
+        </a>
+      </div>
+
+      <!-- 你有更多项目就继续复制上面这个 div.card 结构添加进来，会自动两列排布 -->
+      
+    </div>
   </div>
 
   <footer>
-    Powered by GitHub Pages + GitHub Actions<br>
-    最后更新：2025 年 11 月
+    <div class="container">
+      Powered by GitHub Pages + GitHub Actions<br>
+      <span class="update-time">最后更新：2025 年 11 月</span>
+    </div>
   </footer>
 </body>
 </html>
