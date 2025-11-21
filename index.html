@@ -13,7 +13,6 @@
       --primary: #3b82f6;
       --gray: #64748b;
     }
-
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       margin: 0;
@@ -21,7 +20,6 @@
       color: var(--text);
       line-height: 1.7;
     }
-
     header {
       text-align: center;
       padding: 60px 20px 40px;
@@ -30,37 +28,18 @@
       margin-bottom: 40px;
       border-radius: 0 0 20px 20px;
     }
+    h1 { margin: 0 0 12px 0; font-size: 2.8rem; font-weight: 700; }
+    header p { margin: 0; font-size: 1.2rem; opacity: 0.9; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-    h1 {
-      margin: 0 0 12px 0;
-      font-size: 2.8rem;
-      font-weight: 700;
-    }
-
-    header p {
-      margin: 0;
-      font-size: 1.2rem;
-      opacity: 0.9;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* 强制两列 + 响应式 */
     .grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 28px;
       margin-bottom: 60px;
     }
-
     @media (max-width: 768px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
+      .grid { grid-template-columns: 1fr; }
       h1 { font-size: 2.2rem; }
     }
 
@@ -74,15 +53,12 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      height: 100%;
       min-height: 180px;
     }
-
     .card:hover {
       transform: translateY(-10px);
       box-shadow: 0 20px 40px rgba(0,0,0,0.15);
     }
-
     .card a {
       color: var(--text);
       text-decoration: none;
@@ -90,26 +66,23 @@
       display: flex;
       flex-direction: column;
       height: 100%;
+      justify-content: center;
     }
-
     .card-icon {
       font-size: 3rem;
       margin-bottom: 16px;
       color: var(--primary);
     }
-
     .card h3 {
       margin: 0 0 8px 0;
       font-size: 1.5rem;
       font-weight: 600;
     }
-
     .card p {
       margin: 0;
       color: var(--gray);
       font-size: 0.95rem;
     }
-
     footer {
       text-align: center;
       padding: 40px 20px;
@@ -117,72 +90,11 @@
       font-size: 0.95rem;
       border-top: 1px solid #e2e8f0;
     }
-
-    .update-time {
-      margin-top: 8px;
-      font-size: 0.9rem;
-    }
+    .update-time { margin-top: 8px; font-size: 0.9rem; }
   </style>
 </head>
 <body>
-  <script>
-// 自动给项目匹配图标（加新项目不用管，基本都能智能识别）
-document.querySelectorAll('.card a').forEach(link => {
-  const text = link.textContent.trim().toLowerCase();
-  const href = link.getAttribute('href').toLowerCase();
-  let icon = 'fa-solid fa-code'; // 默认图标
 
-  const iconMap = {
-    // 关键词 → 图标类名
-    'qrcode': 'fa-qrcode',
-    'qr': 'fa-qrcode',
-    'blog': 'fa-newspaper',
-    'card': 'fa-id-card',
-    'social': 'fa-share-alt',
-    'profile': 'fa-user-circle',
-    'recipe': 'fa-utensils',
-    'food': 'fa-utensils',
-    'todo': 'fa-tasks',
-    'calculator': 'fa-calculator',
-    'weather': 'fa-cloud-sun',
-    'chat': 'fa-comments',
-    'music': 'fa-music',
-    'player': 'fa-play-circle',
-    'game': 'fa-gamepad',
-    'piano': 'fa-play',
-    'clock': 'fa-clock',
-    'timer': 'fa-stopwatch',
-    'shop': 'fa-shopping-cart',
-    'ecommerce': 'fa-store',
-    'dashboard': 'fa-chart-line',
-    'admin': 'fa-cog',
-    'portfolio': 'fa-briefcase',
-    'landing': 'fa-rocket',
-    'form': 'fa-wpforms',
-    'login': 'fa-sign-in-alt',
-    'animation': 'fa-star',
-    'css': 'fa-paint-brush',
-    'js': 'fa-js-square',
-    'react': 'fa-react',
-    'vue': 'fa-vuejs',
-  };
-
-  for (const [keyword, ic] of Object.entries(iconMap)) {
-    if (text.includes(keyword) || href.includes(keyword)) {
-      icon = `fa-solid ${ic}`;
-      break;
-    }
-  }
-
-  // 如果已经有图标了就不覆盖（让你可以手动指定特别的）
-  if (!link.querySelector('.card-icon')) {
-    const iconEl = document.createElement('div');
-    iconEl.className = 'card-icon';
-    iconEl.innerHTML = `<i class="${icon}"></i>`;
-    link.insertBefore(iconEl, link.firstChild);
-  }
-});
-</script>
   <header>
     <div class="container">
       <h1>yokacccc 的前端作品集</h1>
@@ -192,10 +104,10 @@ document.querySelectorAll('.card a').forEach(link => {
 
   <div class="container">
     <div class="grid">
-      <!-- 下面这些项目请根据你实际文件夹名和描述修改 -->
+
+      <!-- 推荐写法：不手动写图标，让脚本自动匹配（以后加项目最省事） -->
       <div class="card">
         <a href="QRcode" target="_blank">
-          <div class="card-icon"><i class="fas fa-qrcode"></i></div>
           <h3>QRcode 生成器</h3>
           <p>动态二维码生成与自定义样式</p>
         </a>
@@ -203,7 +115,6 @@ document.querySelectorAll('.card a').forEach(link => {
 
       <div class="card">
         <a href="Blog-card" target="_blank">
-          <div class="card-icon"><i class="fas fa-newspaper"></i></div>
           <h3>Blog Card</h3>
           <p>响应式博客预览卡片组件</p>
         </a>
@@ -211,7 +122,6 @@ document.querySelectorAll('.card a').forEach(link => {
 
       <div class="card">
         <a href="Social-links-profile" target="_blank">
-          <div class="card-icon"><i class="fas fa-user-circle"></i></div>
           <h3>Social Links Profile</h3>
           <p>个人社交链接展示页面</p>
         </a>
@@ -219,22 +129,59 @@ document.querySelectorAll('.card a').forEach(link => {
 
       <div class="card">
         <a href="Recipe-page" target="_blank">
-          <div class="card-icon"><i class="fas fa-utensils"></i></div>
           <h3>Recipe Page</h3>
           <p>精美响应式菜谱页面设计</p>
         </a>
       </div>
 
-      <!-- 你有更多项目就继续复制上面这个 div.card 结构添加进来，会自动两列排布 -->
-      
+      <!-- 继续加新项目就复制上面这几行就行，图标会自动出现！ -->
+
     </div>
   </div>
 
   <footer>
     <div class="container">
       Powered by GitHub Pages + GitHub Actions<br>
-      <span class="update-time">最后更新：2025 年 11 月</span>
+      <span class="update-time">最后更新：2025 年 11 月 21 日</span>
     </div>
   </footer>
+
+  <!-- 自动图标脚本（必须放在最后，DOM 加载完才生效） -->
+  <script>
+    document.querySelectorAll('.card a').forEach(link => {
+      const text = (link.textContent || '').trim().toLowerCase();
+      const href = (link.getAttribute('href') || '').toLowerCase();
+      let iconClass = 'fa-solid fa-code'; // 默认代码图标
+
+      const iconMap = {
+        'qrcode': 'fa-qrcode', 'qr': 'fa-qrcode',
+        'blog': 'fa-newspaper', 'card': 'fa-id-card',
+        'social': 'fa-share-alt', 'profile': 'fa-user-circle',
+        'recipe': 'fa-utensils', 'food': 'fa-utensils',
+        'todo': 'fa-tasks', 'calculator': 'fa-calculator',
+        'weather': 'fa-cloud-sun', 'chat': 'fa-comments',
+        'music': 'fa-music', 'player': 'fa-play-circle',
+        'game': 'fa-gamepad', 'clock': 'fa-clock',
+        'shop': 'fa-shopping-cart', 'dashboard': 'fa-chart-line',
+        'react': 'fa-react', 'vue': 'fa-vuejs',
+        // 你可以继续加...
+      };
+
+      for (const [keyword, ic] of Object.entries(iconMap)) {
+        if (text.includes(keyword) || href.includes(keyword)) {
+          iconClass = `fa-solid ${ic}`;
+          break;
+        }
+      }
+
+      // 只有没有手动图标才自动插入
+      if (!link.querySelector('.card-icon')) {
+        const iconDiv = document.createElement('div');
+        iconDiv.className = 'card-icon';
+        iconDiv.innerHTML = `<i class="${iconClass}"></i>`;
+        link.insertBefore(iconDiv, link.firstChild);
+      }
+    });
+  </script>
 </body>
 </html>
