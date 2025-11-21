@@ -125,6 +125,64 @@
   </style>
 </head>
 <body>
+  <script>
+// 自动给项目匹配图标（加新项目不用管，基本都能智能识别）
+document.querySelectorAll('.card a').forEach(link => {
+  const text = link.textContent.trim().toLowerCase();
+  const href = link.getAttribute('href').toLowerCase();
+  let icon = 'fa-solid fa-code'; // 默认图标
+
+  const iconMap = {
+    // 关键词 → 图标类名
+    'qrcode': 'fa-qrcode',
+    'qr': 'fa-qrcode',
+    'blog': 'fa-newspaper',
+    'card': 'fa-id-card',
+    'social': 'fa-share-alt',
+    'profile': 'fa-user-circle',
+    'recipe': 'fa-utensils',
+    'food': 'fa-utensils',
+    'todo': 'fa-tasks',
+    'calculator': 'fa-calculator',
+    'weather': 'fa-cloud-sun',
+    'chat': 'fa-comments',
+    'music': 'fa-music',
+    'player': 'fa-play-circle',
+    'game': 'fa-gamepad',
+    'piano': 'fa-play',
+    'clock': 'fa-clock',
+    'timer': 'fa-stopwatch',
+    'shop': 'fa-shopping-cart',
+    'ecommerce': 'fa-store',
+    'dashboard': 'fa-chart-line',
+    'admin': 'fa-cog',
+    'portfolio': 'fa-briefcase',
+    'landing': 'fa-rocket',
+    'form': 'fa-wpforms',
+    'login': 'fa-sign-in-alt',
+    'animation': 'fa-star',
+    'css': 'fa-paint-brush',
+    'js': 'fa-js-square',
+    'react': 'fa-react',
+    'vue': 'fa-vuejs',
+  };
+
+  for (const [keyword, ic] of Object.entries(iconMap)) {
+    if (text.includes(keyword) || href.includes(keyword)) {
+      icon = `fa-solid ${ic}`;
+      break;
+    }
+  }
+
+  // 如果已经有图标了就不覆盖（让你可以手动指定特别的）
+  if (!link.querySelector('.card-icon')) {
+    const iconEl = document.createElement('div');
+    iconEl.className = 'card-icon';
+    iconEl.innerHTML = `<i class="${icon}"></i>`;
+    link.insertBefore(iconEl, link.firstChild);
+  }
+});
+</script>
   <header>
     <div class="container">
       <h1>yokacccc 的前端作品集</h1>
