@@ -1,0 +1,139 @@
+/* 极简重置 2025 */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+* { margin: 0; padding: 0; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  touch-action: manipulation;
+}
+
+body { min-height: 100dvh; }
+
+img, picture, video, canvas, svg { display: block; max-width: 100%; }
+
+input, button, textarea, select { font: inherit; }
+
+p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
+
+*, *::before, *::after { -webkit-tap-highlight-color: transparent; }
+
+/* 自定义样式区域 开始 */
+
+body {
+    font-family: "Montserrat", "Fraunces", sans-serif;
+    background-color: #F2EAE2;
+    display: grid;
+    place-items: center;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.product-card {
+    border-radius: 0.5rem;
+    background-color: white;
+    max-width: 350px;
+    min-width: 0;
+
+    overflow: hidden;           /* 防止子元素溢出圆角边框 */
+}
+
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 32px;
+}
+
+.text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.text-content h1 {
+    font-family: "Fraunces";
+    font-size: 32px;
+    line-height: 1;
+}
+
+.text-content span {
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 5px;
+    color: #6C7289;
+    text-transform: uppercase;
+}
+
+.text-content p {
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #6C7289; 
+}
+
+.price-info {
+    display: flex;
+    gap: 16px;
+    align-items: baseline;          /* 让价格的基线对齐 */
+}
+
+.price-info span:first-child {
+    font-family: "Fraunces";
+    font-size: 32px;
+    color: #3D8168
+}
+
+.price-info span:last-child {
+    font-family: "Montserrat";
+    font-size: 13px;
+    
+    text-decoration: line-through;          /* 删除线效果 */
+    color: #6C7289;
+}
+
+.add-to-cart-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    background-color: #3D8168;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    padding: 16px 32px;
+
+    font-size: 16px;
+    font-family: "Montserrat";
+    font-weight: 700;
+}
+
+@media (min-width: 1440px) {
+    .product-card {
+        display: flex;
+        flex-direction: row;
+        max-width: 600px;
+        min-width: 0;
+
+        overflow: hidden;           /* 防止子元素溢出圆角边框 */
+    }
+
+    .header-image, .product-info {
+        flex: 1 1 50%
+    }
+
+    .header-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
