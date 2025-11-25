@@ -1,0 +1,188 @@
+@layer reset {  /* 用级联层组织，便于后期覆盖 */
+
+  /* 盒模型：让尺寸计算更直观 */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* 移除默认间距：避免浏览器添加意外空白 */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* HTML 基础：防止字体自动放大，优化触屏 */
+  html {
+    -webkit-text-size-adjust: 100%;
+    touch-action: manipulation;
+    font-family: system-ui, sans-serif;  /* 现代字体栈，便于阅读 */
+  }
+
+  /* Body 默认：占满屏幕，基本行高 */
+  body {
+    min-height: 100dvh;  /* 动态视口，适应手机 */
+    line-height: 1.5;
+  }
+
+  /* 图片和媒体：响应式显示 */
+  img, picture, video, svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* 表单继承：让输入框看起来一致 */
+  input, button, textarea, select {
+    font: inherit;
+  }
+
+  /* 标题和段落：改善换行和可读性 */
+  h1, h2, h3, h4, h5, h6, p {
+    overflow-wrap: break-word;  /* 防止长词溢出 */
+    /* text-wrap: balance;  均匀换行（现代浏览器支持） */
+  }
+
+  /* 去掉点击高亮：移动端友好 */
+  *,
+  *::before,
+  *::after {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+}
+
+/* -------------------- main css -------------------- */
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    display: grid;
+    grid-template-columns: 1fr;
+    place-content: center;      /* 页面居中器：body的页面内容居中，它不管其子项的对齐问题 */
+    margin-top: 15%;
+    margin-bottom: 15%;
+}
+
+.container {
+    display: grid;
+    justify-items: center;      /* 内容布局器：使其内部子项 .text-header 和 .card-container 水平居中 */
+    gap: 3.75rem;
+}
+
+.text-header {
+    max-width: 316px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+}
+
+.text-header h1 {
+    color: #4D4F62;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.4;
+    letter-spacing: 0.25px;
+}
+
+.text-header span {
+    color: #4D4F62;
+    font-weight: 200;
+    font-size: 24px;
+    line-height: 1.4;
+    letter-spacing: 0.25px;
+}
+
+.text-header p {
+    color: #4D4F62;
+    font-size: 15px;
+    line-height: 1.4;
+    letter-spacing: 0;
+}
+
+.card-container {
+    display: grid;
+    place-items: center;
+    gap: 36px;
+}
+
+.card-one {
+    max-width: 314px;
+    background-color: #fff;
+    border-top: 4px #44D3D2 solid;
+    border-radius: 8px;
+    box-shadow: 0 15px 30px -11px rgba(131, 166, 210, 0.5);
+
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+
+}
+
+.card-two {
+    max-width: 314px;
+    background-color: #fff;
+    border-top: 4px #EA5454 solid;
+    border-radius: 8px;
+    box-shadow: 0 15px 30px -11px rgba(131, 166, 210, 0.5);
+
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+
+}
+
+.card-three {
+    max-width: 314px;
+    background-color: #fff;
+    border-top: 4px #FCAE4A solid;
+    border-radius: 8px;
+    box-shadow: 0 15px 30px -11px rgba(131, 166, 210, 0.5);
+
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+
+}
+
+.card-four {
+    max-width: 314px;
+    background-color: #fff;
+    border-top: 4px #549EF2 solid;
+    border-radius: 8px;
+    box-shadow: 0 15px 30px -11px rgba(131, 166, 210, 0.5);
+
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+
+}
+
+.card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.card-text h2 {
+    font-size: 20px;
+    color: #4D4F62;
+}
+
+.card-text p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #6A7178;
+}
+
+.card img {
+    margin-top: 32px;
+    width: 64px;
+    height: 64px;
+
+    /* align-self:last baseline */
+    align-self: flex-end;
+}
