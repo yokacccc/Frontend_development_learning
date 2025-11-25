@@ -101,7 +101,7 @@ body {
     letter-spacing: 0;
 }
 
-.card-containe {
+.card-container {
     display: grid;
     place-items: center;
     gap: 36px;
