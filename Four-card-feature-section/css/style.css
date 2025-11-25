@@ -104,7 +104,6 @@ body {
 .card-container {
     display: grid;
     place-items: center;
-    gap: 36px;
 }
 
 .card-one {
@@ -234,5 +233,9 @@ body {
     body {
         margin-top: 15%;
         margin-bottom: 15%;
+    }
+
+    .card-container {
+        gap: 32px;
     }
 }
