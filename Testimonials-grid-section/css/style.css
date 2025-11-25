@@ -1,0 +1,61 @@
+@layer reset {  /* 用级联层组织，便于后期覆盖 */
+
+  /* 盒模型：让尺寸计算更直观 */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* 移除默认间距：避免浏览器添加意外空白 */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* HTML 基础：防止字体自动放大，优化触屏 */
+  html {
+    -webkit-text-size-adjust: 100%;
+    touch-action: manipulation;
+    font-family: system-ui, sans-serif;  /* 现代字体栈，便于阅读 */
+  }
+
+  /* Body 默认：占满屏幕，基本行高 */
+  body {
+    min-height: 100dvh;  /* 动态视口，适应手机 */
+    line-height: 1.5;
+  }
+
+  /* 图片和媒体：响应式显示 */
+  img, picture, video, svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* 表单继承：让输入框看起来一致 */
+  input, button, textarea, select {
+    font: inherit;
+  }
+
+  /* 标题和段落：改善换行和可读性 */
+  h1, h2, h3, h4, h5, h6, p {
+    overflow-wrap: break-word;  /* 防止长词溢出 */
+    /* text-wrap: balance;  均匀换行（现代浏览器支持） */
+  }
+
+  /* 去掉点击高亮：移动端友好 */
+  *,
+  *::before,
+  *::after {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+}
+
+/* ------------------- main css ------------------- */
+
+body {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 500;
+}
+
