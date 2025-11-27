@@ -59,18 +59,25 @@ body {
   font-size: 1rem;
   font-weight: 500;
   background-color: #F6F5F6;
+
+  display: grid;
+  place-items: center;
 }
 
-/* 整个网格设置 */
+/* 手机端整个网格设置 */
 .testimonials-grid {
   max-width: 305px;
-  margin: 100px auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  
+  gap: 32px;
+  margin: 32px 0;
 }
 
 /* 通用卡的设置 */
 .testimonials-card {
   background-color: #ffffff;
-  margin-bottom: 32px;
+  /* margin: 32px 0; */
   padding: 32px;
 
   border-radius: 8px;
@@ -212,4 +219,83 @@ body {
 
 .testimonial-card--kira .testimonial-card__quote-body {
   color: #676D7E;
+}
+
+@media (min-width: 1440px) {
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    place-content: center;
+
+    row-gap: 24px;
+    column-gap: 32px;
+
+    max-width: 1114px;
+  }
+
+  .testimonial-card--daniel {
+    grid-column: 1 / 3;
+    grid-row: 1;
+
+    background-image: url('../images/bg-pattern-quotation.svg');
+    background-repeat: no-repeat;
+    background-position: right 60px top;
+  }
+
+  .testimonial-card--jonathan {
+    grid-column: 3 / 4;
+    grid-row: 1;
+  }
+
+  .testimonial-card--jeanette {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .testimonial-card--patrick {
+    grid-column: 2 / 4;
+    grid-row: 2;
+  }
+
+  .testimonial-card--kira {
+    grid-column: 4;
+    grid-row: 1 / 3;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 647px;
+  }
+
+  .testimonial-card--daniel {
+    grid-column: 1 / 3;
+    grid-row: 1;
+
+    background-image: url('../images/bg-pattern-quotation.svg');
+    background-repeat: no-repeat;
+    background-position: right 170px top;
+  }
+
+  .testimonial-card--jonathan {
+    grid-column: 1;
+    grid-row: 2 / 3;
+  }
+
+  .testimonial-card--jeanette {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+
+  .testimonial-card--patrick {
+    grid-column: 1 / 3;
+    grid-row: 3;
+  }
+
+  .testimonial-card--kira {
+    grid-column: 1 / 3;
+    grid-row: 4;
+  }
 }
