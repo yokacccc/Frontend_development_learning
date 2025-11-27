@@ -52,10 +52,65 @@
 
 }
 
-/* ------------------- main css ------------------- */
+/* ---------------------------main css--------------------------- */
 
 body {
   font-family: "Barlow Semi Condensed", sans-serif;
+  font-size: 1rem;
   font-weight: 500;
+  background-color: #F6F5F6;
 }
 
+/* 整个网格设置 */
+.testimonials-grid {
+  max-width: 305px;
+  margin: 100px auto;
+}
+
+/* 通用卡的设置 */
+.testimonials-card {
+  background-color: #ffffff;
+  margin-bottom: 32px;
+  padding: 32px;
+
+  border-radius: 8px;
+  box-shadow: 40px 60px 50px -47px rgba(72, 85, 106, 0.25);
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px
+}
+
+.testimonials-card__profile {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.testimonial-card__avatar {
+  width: 32px;
+  height:32px;
+  border: 2px #A775F1 solid;
+  border-radius: 50%;
+}
+
+.testimonial-card__name {
+  font-size: 13px;
+  line-height: 1.1;
+}
+
+.testimonial-card__title {
+  font-size: 11px;
+  line-height: 1.1;
+}
+
+.testimonial-card__quote-title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.testimonial-card__quote-body {
+  font-size: 13px;
+}
