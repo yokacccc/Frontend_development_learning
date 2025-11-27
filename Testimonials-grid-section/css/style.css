@@ -96,7 +96,7 @@ body {
 
 .testimonial-card__name {
   font-size: 13px;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 
 .testimonial-card__title {
@@ -113,4 +113,103 @@ body {
 
 .testimonial-card__quote-body {
   font-size: 13px;
+}
+
+/* --------------modifier css-------------- */
+
+/* daniel setting */
+.testimonial-card--daniel {
+  background-color: #733FC8;
+}
+
+.testimonial-card--daniel .testimonial-card__name {
+  color: #ffffff;
+}
+
+.testimonial-card--daniel .testimonial-card__title {
+  color: #EDE4FF;
+}
+
+.testimonial-card--daniel .testimonial-card__quote-title {
+  color: #ffffff;
+}
+
+.testimonial-card--daniel .testimonial-card__quote-body {
+  color: #EDE4FF;
+}
+
+/* jonathan setting */
+.testimonial-card--jonathan {
+  background-color: #48556A;
+}
+
+.testimonial-card--jonathan .testimonial-card__avatar {
+  border: none;
+}
+
+.testimonial-card--jonathan .testimonial-card__name {
+  color: #ffffff;
+}
+
+.testimonial-card--jonathan .testimonial-card__title {
+  color: #CFCFCF;
+}
+
+.testimonial-card--jonathan .testimonial-card__quote-title {
+  color: #ffffff;
+}
+
+.testimonial-card--jonathan .testimonial-card__quote-body {
+  color: #E7EAEE;
+}
+
+/* Jeanette setting */
+.testimonial-card--jeanette .testimonial-card__name {
+  color: #48556A;
+}
+
+.testimonial-card--jeanette .testimonial-card__title {
+  color: #676D7E;
+}
+
+.testimonial-card--jeanette .testimonial-card__quote-title {
+  color: #48556A;
+}
+
+.testimonial-card--jeanette .testimonial-card__quote-body {
+  color: #676D7E;
+}
+
+/* patrick setting */
+.testimonial-card--patrick {
+  background-color: #19202D;
+}
+
+.testimonial-card--patrick .testimonial-card__name, .testimonial-card__title {
+  color: #ffffff;
+}
+
+.testimonial-card--patrick .testimonial-card__quote-title {
+  color: #CFCFCF;
+}
+
+.testimonial-card--patrick .testimonial-card__quote-body {
+  color: #E7EAEE;
+}
+
+/* kira setting */
+.testimonial-card--kira .testimonial-card__name {
+  color: #48556A;
+}
+
+.testimonial-card--kira .testimonial-card__title {
+  color: #CFCFCF;
+}
+
+.testimonial-card--kira .testimonial-card__quote-title {
+  color: #48556A;
+}
+
+.testimonial-card--kira .testimonial-card__quote-body {
+  color: #676D7E;
 }
