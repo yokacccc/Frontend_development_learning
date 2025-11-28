@@ -40,7 +40,7 @@
   /* 标题和段落：改善换行和可读性 */
   h1, h2, h3, h4, h5, h6, p {
     overflow-wrap: break-word;  /* 防止长词溢出 */
-    text-wrap: balance;  /* 均匀换行（现代浏览器支持） */
+    /* text-wrap: balance;  均匀换行（现代浏览器支持） */
   }
 
   /* 去掉点击高亮：移动端友好 */
@@ -60,7 +60,9 @@ body {
   font-weight: 500;
 
   display: grid;
+  grid-template-columns: 1fr;
   place-items: center;
+  overflow-x: hidden; /* 防止因子元素宽度意外溢出产生横向滚动 */
 }
 
 .meet-header {
@@ -68,21 +70,534 @@ body {
 }
 
 .meet-hero {
-  /* display: flex;
-  flex-direction: column; */
-  padding: 64px 0 32px 0;
-  /* max-width: 369px; */
-}
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  gap: 48px;
 
-.meet-hero__hidden-image {
-  
+  margin: 0 5px;
+  padding: 64px 0 32px 0;
+  overflow-x: hidden;       /* 设置图片超出x轴隐藏（禁止出现浏览器横滚条） */
 }
 
 .meet-hero__mobile-image {
-  
+  width: 120%;        /* 把图片设置宽度高于100%（以百分比设置以确定图片始终大于可见范围） */
+  margin-left: -10%;  /* 因为image在reset中设置了display:block，添加-10%的外边距使原本的往右超出的部分往左拉 */
+  max-width: none;    /* 重置reset中最大宽度显示100%的设置 */
+  height: auto;       /* 让高度自动防止无意中非正常比例显示图片 */
 }
 
 .meet-hero__desktop-left,
 .meet-hero__desktop-right {
   display: none;
+}
+
+.meet-hero__text-contant {
+  max-width: 305px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  text-align: center;
+}
+
+.meet-hero__text-contant h1 {
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.meet-hero__text-contant p {
+  font-size: 16px;
+  color: #87879D;
+}
+
+.meet-hero__button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px
+}
+
+.meet-hero__button-download {
+  font-size: 16px;
+  font-weight: 900;
+  background-color: #4D96A9;
+  color: #ffffff;
+  border: none;
+  border-radius: 29px;
+
+  max-width: 193px;
+  padding: 16px 40px;
+
+  span {
+    color: #8FE3F9;
+    font-size: 16px;
+    font-weight: 900;
+  }
+}
+
+.meet-hero__button-question {
+  font-size: 16px;
+  font-weight: 900;
+  background-color: #855FB1;
+  color: #ffffff;
+  border: none;
+  border-radius: 30px;
+
+  max-width: 161px;
+  padding: 16px 40px;
+}
+
+.meet-main__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  margin: 32px 32px 64px 32px;;
+
+  /* border: 1px solid hsl(227, 79%, 43%);  测试position 测试完后移除 */
+}
+
+.meet-main__header-01 {
+  font-size: 16px;
+  color: #87879D;
+
+  /* 下面设置文字的圆框 */
+  position: relative;  /* 为伪元素设置相对定位 */
+  width: 56px;
+  height: 56px;
+  line-height: 56px;    /* 一行文字设置行高（与box高相同）文字自动居中（行高会自动在上下平均分布） */
+  text-align: center;   /* 文字居中 */
+  border: 1px solid #D1D1DF;
+  border-radius: 50%;
+  margin: 80px auto 0 auto;
+}
+
+.meet-main__header-01::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 80px;
+  background-color: #D1D1DF;
+}
+
+.meet-main__grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.meet-main__image {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  max-width: 311px;
+  gap: 16px;
+}
+
+.meet-main__image img {
+  border-radius: 10px;
+  /* max-width: 147.5px; */
+}
+
+.meet-main__text-contant {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  p {
+    font-size: 16px;
+    color: #87879D;
+    text-align: center;
+  }
+}
+
+.meet-main__title {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  h3 {
+    font-size: 12px;
+    color: #4D96A9;
+    line-height: 1.1;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 1.1;
+    color: #28283D;
+    text-align: center;
+  }
+}
+
+.meet-footer__grid {
+  width: 100%;
+}
+
+.meet-footer__header-02 {
+  position: relative;
+
+  font-size: 16px;
+  color: #87879D;
+  background-color: #ffffff;
+
+  height: 56px;
+  width:56px;
+  line-height: 56px;
+  text-align: center;
+  border: 1px #D1D1DF solid;
+  border-radius: 50%;
+  margin: 80px auto -28px auto;
+}
+
+.meet-footer__header-02::before {
+  content: '';
+  position: absolute;
+
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 80px;
+  width: 1px;
+  /* border: 1px #D1D1DF solid; */
+  background-color: #D1D1DF;
+}
+
+.meet-footer_background-image {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  padding: 64px 32px;
+  width: 100%;
+
+  background:
+    linear-gradient(rgba(77,150,169,0.75), rgba(77,150,169,0.75)), /* 覆盖色 + 透明度 */
+    url('../assets/mobile/image-footer.jpg') center/cover no-repeat;
+}
+
+.meet-footer__text {
+  display: grid;
+  place-items: center;
+  max-width: 311px;
+  gap: 24px;
+
+  h2 {
+    font-size: 32px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  p {
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  button {
+    align-self: center;
+
+    font-size: 16px;
+    font-weight: 900;
+    color: #ffffff;
+    background-color: #855FB1;
+    border: none;
+    border-radius: 30px;
+    max-width: 193px;
+
+    padding: 16px 40px;
+    
+
+    span {
+      color: #D9B8FF;
+    }
+  }
+}
+
+.meet-hero__button-question:hover,
+.meet-footer__button-download:hover {
+  background-color: #B18BDD;
+  transition: all 0.3s ease;
+}
+
+.meet-hero__button-download:hover {
+  background-color: #71C0D4;
+  transition: all 0.3s ease;
+}
+
+/* -----------------媒体查询----------------- */
+
+@media (min-width:1440px) {
+  .meet-hero {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+    gap: 32px;
+
+    padding: 64px 0;
+    margin: 0;
+    max-width: none;
+
+    /* 去掉故意扩宽导致的横向溢出 */
+    width: 100%;
+  }
+
+  .meet-hero__hidden-image {
+    display: contents;
+  }
+
+  .meet-hero__desktop-left {
+    grid-column: 1;
+  }
+
+  .meet-hero__text-contant {
+    grid-column: 2 / 3;
+  }
+
+  .meet-hero__desktop-right {
+    grid-column: 3 / 4;
+    grid-row: 1;
+  }
+
+  .meet-hero__mobile-image {
+    display: none;
+  }
+
+  .meet-hero__desktop-left,
+  .meet-hero__desktop-right {
+    display: block;
+  }
+
+  .meet-hero__button {
+    display: flex;
+    flex-direction: row;
+    place-content: center;
+  }
+
+  .meet-hero__button-download {
+    max-width: none;
+  }
+
+  .meet-hero__button-question {
+    max-width: none;
+  }
+
+  .meet-hero__text-contant {
+    max-width: 448.3px;
+    gap: 32px;
+
+    h1 {
+      font-size: 64px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  }
+
+  .meet-main__grid {
+    display: flex;
+    flex-direction: column;
+    /* justify-items: center; */
+    align-items: center;
+    max-width: 1440px;
+  }
+
+  .meet-main__image {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 32px;
+    /* max-width: 1120px; */
+
+    img {
+      max-width: 256px;
+    }
+  }
+
+  .meet-main__text-contant {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    
+    max-width: 445px;
+  }
+
+  .meet-main__title {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+  }
+
+  .meet-main__title h2 {
+    font-size: 40px;
+  }
+
+  .meet-footer__text {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* justify-items: start; */
+    /* align-items: start; */
+    max-width: 1120px;
+  }
+
+  .meet-footer__text h2 {
+    font-size: 40px;
+    max-width: 445px;
+    text-align: start;
+
+    align-self: start;
+  }
+
+  .meet-footer__text p {
+    font-size: 18px;
+    max-width: 355px;
+    text-align: start;
+
+    align-self: start;
+  }
+
+  .meet-footer__text button {
+    align-self: start;
+  }
+
+  .meet-footer_background-image {
+    background-image:
+      linear-gradient(rgba(77, 150, 169, 0.75), rgba(77, 150, 169, 0.75)),
+      url('../assets/desktop/image-footer.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: normal;
+
+  }
+}
+
+@media (min-width:768px) and (max-width:1439px) {
+  .meet-hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    gap: 32px;
+
+    padding: 64px 0;
+    margin: 0;
+    max-width: none;
+    width: 100%;
+    /* width: calc(100% + 200px); */
+  }
+
+  .meet-hero__button {
+    display: flex;
+    flex-direction: row;
+    place-content: center;
+  }
+
+  .meet-hero__button-download {
+    max-width: none;
+  }
+
+  .meet-hero__button-question {
+    max-width: none;
+  }
+
+  .meet-hero__text-contant {
+    max-width: 448.3px;
+    gap: 32px;
+
+    h1 {
+      font-size: 64px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  }
+
+  .meet-main__grid {
+    display: flex;
+    flex-direction: column;
+    /* justify-items: center; */
+    align-items: center;
+    max-width: 768px;
+  }
+
+  .meet-main__image {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 32px;
+    max-width: 680px;
+
+    img {
+      max-width: 159.75px;
+    }
+  }
+
+  .meet-main__text-contant {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    
+    max-width: 445px;
+  }
+
+  .meet-main__title {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+  }
+
+  .meet-main__title h2 {
+    font-size: 40px;
+  }
+
+  .meet-footer__text {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* justify-items: start; */
+    /* align-items: start; */
+    max-width: 768px;
+  }
+
+  .meet-footer__text h2 {
+    font-size: 40px;
+    max-width: 445px;
+    text-align: start;
+
+    align-self: start;
+  }
+
+  .meet-footer__text p {
+    font-size: 18px;
+    max-width: 355px;
+    text-align: start;
+
+    align-self: start;
+  }
+
+  .meet-footer__text button {
+    align-self: start;
+  }
+
+  .meet-footer_background-image {
+    background-image:
+      linear-gradient(rgba(77, 150, 169, 0.75), rgba(77, 150, 169, 0.75)),
+      url('../assets/desktop/image-footer.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: normal;
+
+    /* background:
+    linear-gradient(rgba(77,150,169,0.75), rgba(77,150,169,0.75)),
+    url('../assets/desktop/image-footer.jpg') center/cover no-repeat; */
+  }
 }
