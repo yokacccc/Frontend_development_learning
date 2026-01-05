@@ -1,0 +1,382 @@
+/* 1. 现代盒模型 */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 2. 只清零 body，避免破坏太多默认间距 */
+body {
+    margin: 0;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100dvh;
+}
+
+/* 3. 表单继承字体 */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* 4. 图片自适应 */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* 5. 导航常用：列表无样式（内容列表可手动加回） */
+nav ul,
+nav ol {
+    list-style: none;
+}
+
+/* 6. 链接基础样式（保留可访问性） */
+a {
+    color: inherit;
+}
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+/* 7. 可选：按钮重置 */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* 8. 清理标题，段落默认margin */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+/* ——————————————————————————————Main CSS—————————————————————————————— */
+
+:root {
+    /* 颜色设置 */
+    --grey900-title-color: #48556a;
+    --grey500-main-text-color: #6e8098;
+    --grey400: #9daec2;
+    --grey200: #ecf2f8;
+}
+
+body {
+    display: grid;
+    place-content: center;
+    background-color: var(--grey200);
+
+    font-family: Manrope;
+}
+
+/* 卡片主要设置 */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+
+    background-color: white;
+    border-radius: 10px;
+    max-width: 327px;
+    width: 100%;
+
+    position: relative;
+}
+
+.img-container {
+    height: 200px;
+    /* width: 100%; */
+    overflow: hidden;
+    /* border: red 2px solid; */
+}
+
+.img-container > img {
+    /* width: 100%;
+    height: 100%; */
+    /* object-fit: cover; */
+    object-position: center -15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* 页面文字布局设计 */
+.main-page {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    max-width: 267px;
+}
+
+.text-contant > h1 {
+    font-family: 700;
+    font-size: 20px;
+    line-height: 1.3;
+    letter-spacing: 0.25px;
+    /* margin-top: 32px; */
+
+    color: var(--grey900-title-color);
+}
+
+.text-contant > p {
+    font-family: 500;
+    font-size: 13px;
+    line-height: 1.4;
+    letter-spacing: 0.12%;
+    margin-top: 24px;
+
+    color: var(--grey500-main-text-color);
+}
+
+/* 人物简介 */
+.user-profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    gap: 24px;
+
+    width: 100%;
+
+    /* max-width: 267px; */
+}
+
+.user_info {
+    display: flex;
+    flex-direction: row;
+}
+
+.user_info > img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.profile-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 16px;
+}
+
+.profile-text > h2 {
+    font-family: 700;
+    font-size: 13px;
+    line-height: 1.3;
+    margin: 0;
+
+    color: var(--grey900-title-color);
+}
+
+.profile-text > p {
+    font-family: 500;
+    font-size: 13px;
+    line-height: 1.3;
+    margin: 0;
+
+    color: var(--grey500-main-text-color);
+}
+
+.share_icon_bg > svg {
+    width: 15px;
+    height: 13px;
+
+    color: var(--grey900-title-color);
+}
+
+.share_icon_bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: var(--grey200);
+
+    height: 32px;
+    width: 32px;
+
+    cursor: pointer;
+}
+
+/* 隐藏弹出窗口 */
+.pop-up_window {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--grey900-title-color);
+
+    /* 动画设置 */
+    position: absolute;
+    /* bottom初始位置 */
+    bottom: 0;
+    left: 0;
+    /* translateY 初始向下移动100%（隐藏） */
+    transform: translateY(100%);
+    /* 过渡动画设置 */
+    transition: all 0.5s ease;
+
+    opacity: 0;
+    visibility: hidden;
+
+    height: 76px;
+    width: 100%;
+    max-width: 327px;
+
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.pop-up_window.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+
+}
+
+.share-media {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    max-width: 267px;
+}
+
+.left_share_area {
+    display: flex;
+    gap: 24px;
+}
+
+.left_share_area > span {
+    font-size: 13px;
+    line-height: 1.4;
+    letter-spacing: 5px;
+    color: var(--grey400);
+}
+
+.share_icon {
+    color: #eee;
+}
+
+.share_icon_bg_return {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: var(--grey500-main-text-color);
+
+    width: 32px;
+    height: 32px;
+
+    cursor: pointer;
+}
+
+.share_icon_bg_return > svg {
+    color: #eee;
+}
+
+.share_icon {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+@media (min-width: 700px) {
+    .container {
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+
+        max-width: 730px;
+    }
+
+    .img-container {
+        height: 285px;
+        width: 280px;
+    }
+
+    .img-container > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: -10px center;
+
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .main-page {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+
+        max-width: 365px;
+        margin-right: 40px;
+    }
+
+    .user-profile {
+        margin-bottom: 0;
+    }
+
+    .pop-up_window {
+        width: 248px;
+        height: 55px;
+        border-radius: 10px;
+
+        /* position: absolute; */
+        left: 544px;
+        bottom: 90px;
+        /* transform: translateX(-50%) translateY(10px); */
+
+        /* transform: translateY(10px); */
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .pop-up_window.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .pop-up_window::after {
+        content: "";
+        position: absolute;
+        bottom: -11px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: 0;
+        height: 0;
+
+        color: var(--grey900-title-color);
+
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-top: 12px solid var(--grey900-title-color); /* 三角颜色 */
+    }
+
+    .share-media {
+      justify-content: center;
+    }
+
+    #share-btn-return {
+        display: none;
+    }
+}
