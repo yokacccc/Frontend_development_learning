@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- displays site properly based on user's device -->
+
+        <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <title>Newsletter sign-up form with success message</title>
+    </head>
+    <body>
+        <!-- Sign-up form start -->
+        <article class="sign-up" id="signUp">
+            <!-- 三端图片 -->
+            <picture class="sign-up__image">
+                <source
+                    media="(min-width: 1440px)"
+                    srcset="assets/images/illustration-sign-up-desktop.svg"
+                />
+                <source
+                    media="(min-width: 768px)"
+                    srcset="assets/images/illustration-sign-up-tablet.svg"
+                />
+                <img src="assets/images/illustration-sign-up-mobile.svg" alt="移动端展示图片" />
+            </picture>
+
+            <!-- 主要内容 -->
+            <div class="sign-up__primary-content">
+                <div class="sign-up__text-content">
+                    <h1>Stay updated!</h1>
+                    <p>Join 60,000+ product managers receiving monthly updates on:</p>
+                    <ul>
+                        <li>Product discovery and building what matters</li>
+                        <li>Measuring to ensure updates are a success</li>
+                        <li>And much more!</li>
+                    </ul>
+                </div>
+                <!-- 表单 -->
+                <form action="#" class="sign-up__form" novalidate>
+                    <div class="sign-up__form-address">
+                        <label for="address"
+                            >Email address
+                            <span class="sign-up__input-error-text" id="signUpErrorText"
+                                >Valid email required</span
+                            ></label
+                        ><br />
+                        <input
+                            type="text"
+                            name="email"
+                            id="address"
+                            placeholder="email@company.com"
+                            class="sign-up__input-email"
+                            required
+                        />
+                    </div>
+                    <div class="sign-up__submit">
+                        <button type="submit" class="sign-up__button" id="signUpBtn">
+                            Subscribe to monthly newsletter
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </article>
+        <!-- Sign-up form end -->
+
+        <!-- Success message start -->
+        <article class="success-page is-hidden" id="success">
+            <div class="success-page__container">
+                <div class="success-page__primary-content">
+                    <img src="assets/images/icon-success.svg" alt="已发送图标" />
+                    <h1>Thanks for subscribing!</h1>
+                    <p>
+                        A confirmation email has been sent to <strong>ash@loremcompany.com</strong>.
+                        Please open it and click the button inside to confirm your subscription.
+                    </p>
+                </div>
+                <div class="success-page__action">
+                    <button
+                        type="button"
+                        class="success-page__button success-page__button--dismiss"
+                    >
+                        Dismiss message
+                    </button>
+                </div>
+            </div>
+        </article>
+        <!-- Success message end -->
+
+        <script src="index.js"></script>
+    </body>
+</html>

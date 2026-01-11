@@ -1,0 +1,67 @@
+/* 1. 现代盒模型 */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 2. 只清零 body，避免破坏太多默认间距 */
+body {
+    margin: 0;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100dvh;
+}
+
+/* 3. 表单继承字体 */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* 4. 图片自适应 */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* 5. 导航常用：列表无样式（内容列表可手动加回） */
+nav ul,
+nav ol {
+    list-style: none;
+}
+
+/* 6. 链接基础样式（保留可访问性） */
+a {
+    color: inherit;
+}
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+/* 7. 可选：按钮重置 */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* 8. 清理标题，段落默认margin */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+/* ——————————————————————————————Main CSS—————————————————————————————— */

@@ -1,0 +1,290 @@
+/* 1. 现代盒模型 */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 2. 只清零 body，避免破坏太多默认间距 */
+body {
+    margin: 0;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100dvh;
+}
+
+/* 3. 表单继承字体 */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* 4. 图片自适应 */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* 5. 导航常用：列表无样式（内容列表可手动加回） */
+nav ul,
+nav ol {
+    list-style: none;
+}
+
+/* 6. 链接基础样式（保留可访问性） */
+a {
+    color: inherit;
+}
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+/* 7. 清理标题，段落默认margin */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+/* ——————————————————————————————Main CSS—————————————————————————————— */
+
+/* sign-up page css primary set */
+
+body {
+    display: grid;
+    place-content: center;
+    background-color: white;
+    
+    font-family: "Roboto", sans-serif;
+}
+
+.sign-up {
+    max-width: 375px;
+    background-color: white;
+    /* border: 1px solid; */
+}
+
+.sign-up__primary-content {
+    display: grid;
+    gap: 40px;
+    max-width: 327px;
+    margin: 40px auto;
+}
+
+/* sign-up 文字处理 */
+
+.sign-up__text-content {
+    display: grid;
+    gap: 24px;
+}
+
+.sign-up__text-content h1{
+    font-size: 40px;
+    line-height: 1;
+}
+
+.sign-up__text-content ul {
+    display: grid;
+    gap: 8px;
+
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sign-up__text-content li {
+    background-image: url(assets/images/icon-list.svg);
+    background-repeat: no-repeat;
+    background-position: left top;
+    padding-left: 32px;
+}
+
+/* form 表单设置 */
+
+.sign-up__form {
+    display: grid;
+    gap: 24px;
+}
+
+.sign-up__form-address label {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.sign-up__input-email {
+    margin-top: 8px;
+    width: 100%;
+
+    padding: 16px 24px;
+    border: 1px solid black;
+    border-radius: 8px; 
+}
+
+/* 输入表单错误显示 叠加两个类名才显示 .error是需要JS手动添加和移除的 */
+.sign-up__input-email.error {
+    background-color: hsl(4, 100%, 67%, 0.2);
+    border-color: #FF6155;
+    outline: 1px solid #FF6155;
+}
+
+.sign-up__button {
+    font-size: 16px;
+    font-weight: 700;
+
+    background-color: #242742;
+    color: white;
+    width: 100%;
+    padding-top: 16px;
+    padding-bottom: 16px;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+/* sign-up 邮箱验证状态 */
+.sign-up__input-error-text {
+    display: none;  /* 错误提示文字，默认隐藏 */
+
+    color: #FF6155;
+    font-weight: 700;
+
+    padding-left: 140px;
+}
+
+/* .sign-up__input-email:not(:placeholder-shown):invalid {
+    background-color: hsl(4, 100%, 67%, 0.2);
+    border-color: #FF6155;
+    outline: 1px solid #FF6155;
+} */
+
+/* success页面设置 */
+
+.success-page {
+    display: grid;
+    place-content: center;
+    /* max-width: 375px; */
+    
+    background-color: white;
+}
+
+.success-page__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 327px;
+    
+}
+
+.success-page__primary-content {
+    display: grid;
+    gap: 32px;
+}
+
+.success-page__primary-content h1 {
+    line-height: 1;
+}
+
+.success-page__button {
+    font-size: 16px;
+    font-weight: 700;
+    background-color: #36384D;
+    color: white;
+    width: 100%;
+
+    padding-top: 16px;
+    padding-bottom: 16px;
+    margin-top: 200px;
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.success-page__button:hover {
+    background-color: #242742;
+}
+
+.success-page__button:active {
+    background-color: hsl(234, 29%, 30%);
+}
+
+/* 媒体查询 */
+
+@media (min-width: 768px){
+
+    body {
+        background-color: #36384D;
+    }
+
+    .sign-up {
+        max-width: 608px;
+        padding: 40px;
+        border-radius: 36px;
+    }
+
+    .sign-up__primary-content {
+        max-width: none;
+    }
+
+    /* success 页面 */
+
+    .success-page {
+        max-width: 504px;
+        gap: 32px;
+        border-radius: 36px;
+        /* height: none; */
+    }
+
+    .success-page__container {
+        display: grid;
+        place-content: center;
+        gap: 32px;
+        margin: 64px;
+    }
+
+    .success-page__button {
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 1440px) {
+
+    body {
+        background-color: #36384D;
+    }
+
+    .sign-up {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: "content image";
+        gap: 64px;
+
+        max-width: 904px;
+    }
+
+    .sign-up__image {
+        grid-area: image;
+    }
+
+    .sign-up__primary-content {
+        grid-area: content;
+    }
+}
+
+/* 开启或隐藏sign-up和success页面 */
+
+.is-hidden {
+    display: none; /* success页面默认隐藏 */
+}
