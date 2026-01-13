@@ -1,0 +1,487 @@
+/* 1. 现代盒模型 */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 2. 只清零 body，避免破坏太多默认间距 */
+body {
+    margin: 0;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100dvh;
+}
+
+/* 3. 表单继承字体 */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* 4. 图片自适应 */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* 5. 导航常用：列表无样式（内容列表可手动加回） */
+nav ul,
+nav ol {
+    list-style: none;
+}
+
+/* 6. 链接基础样式（保留可访问性） */
+a {
+    color: inherit;
+}
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+/* 7. 可选：按钮重置 */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* 8. 清理标题，段落默认margin */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+/* ——————————————————————————————Main CSS—————————————————————————————— */
+
+:root {
+    --navy-950: #0e1323;
+    --navy-900: #1c204b;
+    --navy-800: #33397a;
+    --navy-200: #bbc0ff;
+    --orange-300: #ff8b64;
+    --purple-700: #7335d2;
+    --purple-600: #5747ea;
+    --purple-500: #7078c9;
+    --blue-300: #55c2e6;
+    --pink-400: #ff5e7d;
+    --green-400: #4bcf82;
+    --yellow-300: #f1c75b;
+    --grey-200: #d8d8d8;
+
+    --font-family: Rubik;
+
+    --text-preset-1-size: 56px;
+    --text-preset-1-line-height: 66px;
+
+    --text-preset-2-size: 40px;
+    --text-preset-2-line-height: 47px;
+
+    --text-preset-3-size: 32px;
+    --text-preset-3-line-height: 38px;
+
+    --text-preset-4-size: 24px;
+    --text-preset-4-line-height: 28px;
+
+    --text-preset-1-2-3-4-light-weight: 300;
+
+    --text-preset-5-medium-size: 18px;
+    --text-preset-5-line-height: 21px;
+
+    --text-preset-5-medium-weight: 500;
+    --text-preset-5-regular-weight: 400;
+
+    --text-preset-6-medium-size: 15px;
+    --text-preset-6-line-height: 18px;
+
+    --text-preset-6-regular-weight: 400;
+}
+
+body {
+    display: grid;
+    place-content: center;
+    background-color: var(--navy-950);
+
+    font-family: var(--font-family), sans-serif;
+}
+
+.container {
+    display: grid;
+    gap: 24px;
+
+    margin-top: 80px;
+    margin-bottom: 80px;
+    max-width: 327px;
+}
+
+.card-control {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+/* 用户信息区域 */
+
+.user-primary {
+    /* 这个背景主要控制按钮层，因为profile层有自己的set，而按钮层是其子层，让其包裹两个内容层 */
+    background-color: var(--navy-900);
+    border-radius: 15px;
+
+    font-family: var(--font-family);
+    font-weight: var(--text-preset-1-2-3-4-light-weight);
+
+    overflow: hidden; /* 防止内容溢出后破坏圆角 */
+}
+
+.user-primary__profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    padding: 32px;
+    border-radius: 15px;
+
+    background-color: var(--purple-600);
+}
+
+.user-primary__profile-image img {
+    width: 64px;
+    height: 64px;
+    border: 3px white solid;
+    border-radius: 50%;
+}
+
+.user-primary__profile-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.user-primary__profile-text p {
+    font-family: var(--font-family);
+    font-size: var(--text-preset-6-medium-size);
+    font-weight: var(--text-preset-6-regular-weight);
+    color: var(--navy-200);
+}
+
+.user-primary__profile-text h1 {
+    font-size: var(--text-preset-4-size);
+    font-weight: var(--text-preset-1-2-3-4-light-weight);
+    line-height: var(--text-preset-4-line-height);
+    color: white;
+}
+
+.user-primary__time-control {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    /* 按钮层覆盖样式主要功能 */
+    padding-top: 24px;
+    padding-bottom: 24px;
+
+    cursor: pointer;
+}
+
+.user-primary__daily-control {
+    min-width: 109px;
+    font-size: var(--text-preset-5-medium-size);
+    font-weight: var(--text-preset-5-regular-weight);
+    color: var(--purple-500);
+}
+
+.user-primary__weekly-control {
+    min-width: 109px;
+    font-size: var(--text-preset-5-medium-size);
+    font-weight: var(--text-preset-5-regular-weight);
+    color: white;
+}
+
+.user-primary__monthly-control {
+    min-width: 109px;
+    font-size: var(--text-preset-5-medium-size);
+    font-weight: var(--text-preset-5-regular-weight);
+    color: var(--purple-500);
+}
+
+/* work 卡片区域 */
+
+.card__work {
+    background-color: var(--orange-300);
+    background-image: url(images/icon-work.svg);
+    background-repeat: no-repeat;
+    background-position: top -10px right 20px;
+
+    border-radius: 15px;
+    overflow: hidden;
+
+    padding-top: 40px;
+    position: relative;
+}
+
+/* play 卡片区域 */
+
+.card__play {
+    background-color: var(--blue-300);
+    background-image: url(images/icon-play.svg);
+    background-repeat: no-repeat;
+    background-position: top -10px right 20px;
+
+    border-radius: 15px;
+    overflow: hidden;
+
+    padding-top: 40px;
+    position: relative;
+}
+
+/* study 卡片区域 */
+
+.card__study {
+    background-color: var(--pink-400);
+    background-image: url(images/icon-study.svg);
+    background-repeat: no-repeat;
+    background-position: top -10px right 20px;
+
+    border-radius: 15px;
+    overflow: hidden;
+
+    padding-top: 40px;
+    position: relative;
+}
+
+/* exercise 卡片区域 */
+
+.card__exercise {
+    background-color: var(--green-400);
+    background-image: url(images/icon-exercise.svg);
+    background-repeat: no-repeat;
+    background-position: top 0 right 20px;
+
+    border-radius: 15px;
+    overflow: hidden;
+
+    padding-top: 40px;
+    position: relative;
+}
+
+/* social 卡片区域 */
+
+.card__social {
+    background-color: var(--purple-700);
+    background-image: url(images/icon-social.svg);
+    background-repeat: no-repeat;
+    background-position: top -15px right 20px;
+
+    border-radius: 15px;
+    overflow: hidden;
+
+    padding-top: 40px;
+    position: relative;
+}
+
+/* self-care 卡片区域 */
+
+.card__self-care {
+    background-color: var(--yellow-300);
+    background-image: url(images/icon-self-care.svg);
+    background-repeat: no-repeat;
+    background-position: top -10px right 20px;
+
+    border-radius: 15px;
+    overflow: hidden;
+
+    padding-top: 40px;
+    position: relative;
+}
+
+/* 各article 文字与display内容统一设置 */
+
+.card__main-section {
+    background-color: var(--navy-900);
+    border-radius: 15px;
+
+    padding: 24px;
+}
+
+.card__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card__title {
+    color: white;
+    font-family: var(--font-family);
+    font-size: var(--text-preset-5-medium-size);
+    font-weight: var(--text-preset-5-medium-weight);
+}
+
+.card__stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.current {
+    color: white;
+    font-size: var(--text-preset-3-size);
+    font-weight: var(--text-preset-1-2-3-4-light-weight);
+}
+
+.previous {
+    font-size: var(--text-preset-6-medium-size);
+    font-weight: var(--text-preset-6-regular-weight);
+    color: var(--navy-200);
+}
+
+/* active 设置 */
+
+.user-primary__daily-control:hover {
+    color: #fff;
+}
+
+.user-primary__weekly-control:hover {
+    color: #fff;
+}
+
+.user-primary__monthly-control:hover {
+    color: #fff;
+}
+
+
+
+
+
+
+/* ————————————————————媒体查询———————————————————— */
+
+/* min-width:768px */
+@media (min-width: 768px) {
+    .container {
+        max-width: 612px;
+    }
+
+    .user-primary {
+        width: 100%;
+    }
+
+    .user-primary__profile {
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: center;
+    }
+
+    .card-control {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* 各article 文字与display内容统一设置修改 */
+
+    .card__main-section {
+        display: grid;
+        gap: 16px;
+    }
+
+    .card__stats {
+        display: grid;
+        place-content: start;
+        justify-content: start;
+        align-items: left;
+    }
+
+    .current {
+        font-size: var(--text-preset-1-size);
+        line-height: var(--text-preset-1-line-height);
+        font-weight: var(--text-preset-1-2-3-4-light-weight);
+    }
+}
+
+/* min-width:1440px */
+
+@media (min-width: 1440px) {
+    .container {
+        display: flex;
+        flex-direction: row;
+        max-width: 1116px;
+    }
+
+    .user-primary {
+        max-width: 255px;
+    }
+
+    .user-primary__profile {
+        display: grid;
+        place-content: start;
+
+        padding-bottom: 70px;
+    }
+
+    .user-primary__profile-text {
+        gap: 0;
+    }
+
+    .user-primary__profile-text h1 {
+        font-size: var(--text-preset-2-size);
+        line-height: var(--text-preset-2-line-height);
+    }
+
+    .user-primary__time-control {
+        display: grid;
+        place-content: start;
+        gap: 10px;
+        padding-left: 32px;
+    }
+
+    .user-primary__daily-control {
+        display: grid;
+        justify-self: left;
+
+        min-width: 0;
+        /* border: 1px solid red; */
+    }
+
+    .user-primary__weekly-control {
+        display: grid;
+        justify-self: left;
+
+        min-width: 0;
+        /* border: 1px solid red; */
+    }
+
+    .user-primary__monthly-control {
+        display: grid;
+        justify-self: left;
+
+        min-width: 0;
+        /* border: 1px solid red; */
+    }
+
+    .current {
+        font-size: var(--text-preset-1-size);
+        line-height: var(--text-preset-1-line-height);
+        font-weight: var(--text-preset-1-2-3-4-light-weight);
+    }
+
+    .previous {
+        font-size: var(--text-preset-6-medium-size);
+        font-weight: var(--text-preset-6-regular-weight);
+        color: var(--navy-200);
+    }
+}
