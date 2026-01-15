@@ -207,7 +207,7 @@ body {
     min-width: 109px;
     font-size: var(--text-preset-5-medium-size);
     font-weight: var(--text-preset-5-regular-weight);
-    color: white;
+    color: var(--purple-500);
 }
 
 .user-primary__monthly-control {
@@ -351,15 +351,13 @@ body {
 
 /* active 设置 */
 
-.user-primary__daily-control:hover {
+    /* 鼠标悬停或focus tab选中 */
+.user-primary__time-control button:hover,
+.user-primary__time-control button:focus-visible {
     color: #fff;
 }
 
-.user-primary__weekly-control:hover {
-    color: #fff;
-}
-
-.user-primary__monthly-control:hover {
+.user-primary__time-control button.active {
     color: #fff;
 }
 
@@ -373,7 +371,7 @@ body {
 /* min-width:768px */
 @media (min-width: 768px) {
     .container {
-        max-width: 612px;
+        max-width: 768px;
     }
 
     .user-primary {
