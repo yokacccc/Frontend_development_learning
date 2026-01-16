@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- displays site properly based on user's device -->
+
+        <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="style.css" />
+        <title>Tip calculator app</title>
+    </head>
+    <body>
+        <header class="header-logo">
+            <img src="images/logo.svg" alt="logo image" />
+        </header>
+        <main class="container">
+            <!-- 上半部分 -->
+            <div class="bill-container">
+                <form action="#" class="bill__display">
+                    <label for="bill">Bill</label>
+                    <input type="text" name="bill" id="bill" placeholder="0" />
+                </form>
+                <div class="bill__tip-selection-container">
+                    <p>Select Tip %</p>
+                    <div class="bill__options">
+                        <button class="calcuator-button_5% button_style">5%</button>
+                        <button class="calcuator-button_10% button_style">10%</button>
+                        <button class="calcuator-button_15% button_style">15%</button>
+                        <button class="calcuator-button_25% button_style">25%</button>
+                        <button class="calcuator-button_50% button_style">50%</button>
+                        <button class="calcuator-button_custom button_style">Custom</button>
+                    </div>
+                </div>
+                <form action="#" class="bill__people">
+                    <label for="people">Number of People</label>
+                    <input type="text" id="people" name="people" placeholder="0"/>
+                </form>
+            </div>
+            <!-- 下半部分 -->
+            <div class="results-container">
+                <div class="results__details">
+                    <div class="results__tip-amount">
+                        <div class="results__tip-text results__text-style">
+                            <p>Tip Amount</p>
+                            <p>/ person</p>
+                        </div>
+                        <p class="results__dolor">$4.27</p>
+                    </div>
+                    <div class="results__total-amount">
+                        <div class="results__total-text">
+                            <p>Total</p>
+                            <p>/ person</p>
+                        </div>
+                        <p class="results__dolor">$32.79</p>
+                    </div>
+                </div>
+                <div class="results__reset-button">
+                    <button>RESET</button>
+                </div>
+            </div>
+        </main>
+
+        <script src="index.js"></script>
+    </body>
+</html>
