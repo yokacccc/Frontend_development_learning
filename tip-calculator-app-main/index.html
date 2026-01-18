@@ -26,22 +26,27 @@
             <div class="bill-container">
                 <form action="#" class="bill__display">
                     <label for="bill">Bill</label>
-                    <input type="text" name="bill" id="bill" placeholder="0" />
+                    <input type="number" name="bill" id="bill" placeholder="0" />
                 </form>
                 <div class="bill__tip-selection-container">
                     <p>Select Tip %</p>
                     <div class="bill__options">
-                        <button class="calcuator-button_5% button_style">5%</button>
-                        <button class="calcuator-button_10% button_style">10%</button>
-                        <button class="calcuator-button_15% button_style">15%</button>
-                        <button class="calcuator-button_25% button_style">25%</button>
-                        <button class="calcuator-button_50% button_style">50%</button>
-                        <button class="calcuator-button_custom button_style">Custom</button>
+                        <button class="button_style">5%</button>
+                        <button class="button_style">10%</button>
+                        <button class="button_style">15%</button>
+                        <button class="button_style">25%</button>
+                        <button class="button_style">50%</button>
+                        <form action="#" class="calcuator-custom_input">
+                            <input type="number" id="custom-input" name="tip" placeholder="Custom" />
+                        </form>
                     </div>
                 </div>
                 <form action="#" class="bill__people">
-                    <label for="people">Number of People</label>
-                    <input type="text" id="people" name="people" placeholder="0"/>
+                    <div class="bill__people-header">
+                        <label for="people">Number of People</label>
+                        <span class="bill__error-message">Can't be zero</span>
+                    </div>
+                    <input type="number" id="people" class="bill__people-of-number" name="people" placeholder="0" />
                 </form>
             </div>
             <!-- 下半部分 -->
@@ -52,14 +57,14 @@
                             <p>Tip Amount</p>
                             <p>/ person</p>
                         </div>
-                        <p class="results__dolor">$4.27</p>
+                        <p class="results__dollar" id="tip-per-person">$0.00</p>
                     </div>
                     <div class="results__total-amount">
                         <div class="results__total-text">
                             <p>Total</p>
                             <p>/ person</p>
                         </div>
-                        <p class="results__dolor">$32.79</p>
+                        <p class="results__dollar" id="total-per-person">$0.00</p>
                     </div>
                 </div>
                 <div class="results__reset-button">
