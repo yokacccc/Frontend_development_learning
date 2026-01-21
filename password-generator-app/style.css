@@ -1,0 +1,419 @@
+/* 1. 现代盒模型 */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 2. 只清零 body，避免破坏太多默认间距 */
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100dvh;
+}
+
+/* 3. 表单继承字体 */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* 4. 图片自适应 */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* 5. 导航常用：列表无样式（内容列表可手动加回） */
+nav ul,
+nav ol {
+    list-style: none;
+}
+
+/* 6. 链接基础样式（保留可访问性） */
+a {
+    color: inherit;
+}
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+/* 7. 可选：按钮重置 */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* 8. 清理标题，段落默认margin */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+    margin: 0;
+    padding: 0;
+}
+
+/* ——————————————————————————————Main CSS—————————————————————————————— */
+
+@font-face {
+    font-family: "JetBrainsMono-Bold";
+    src: url(starter-code/assets/fonts/static/JetBrainsMono-Bold.ttf);
+}
+
+:root {
+    --grey-950: #08070b;
+    --grey-900: #14131b;
+    --grey-850: #18171f;
+    --grey-800: #24232c;
+    --grey-700: #54535b;
+    --grey-600: #817d92;
+    --grey-200: #e6e5ea;
+
+    --green-200: #a4ffaf;
+    --yellow-300: #f8cd65;
+    --orange-400: #fb7c58;
+    --red-500: #f64a4a;
+
+    --text-preset-1-size: 32px;
+    --text-preset-1-line-height: 42px;
+    --text-preset-2-size: 24px;
+    --text-preset-2-line-height: 32px;
+    --text-preset-3-size: 18px;
+    --text-preset-3-line-height: 24px;
+    --text-preset-4-size: 16px;
+    --text-preset-4-line-height: 20px;
+}
+
+body {
+    display: grid;
+    place-content: center;
+    font-family: "JetBrainsMono-Bold", sans-serif;
+    background-color: var(--grey-950);
+    color: white;
+}
+
+.header-text {
+    display: grid;
+    place-content: center;
+    margin-bottom: 16px;
+
+    width: 100%;
+}
+
+.header-text p {
+    color: var(--grey-600);
+}
+
+.container {
+    display: grid;
+    gap: 16px;
+
+    max-width: 343px;
+}
+
+/* ——————————————password display—————————————— */
+
+.password-display {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--grey-800);
+    padding: 16px;
+
+    position: relative;
+}
+
+.password-display input {
+    font-size: var(--text-preset-4-size);
+    color: white;
+    background-color: var(--grey-800);
+    border: none;
+    outline: none;
+
+    width: 100%;
+}
+
+.password-display-btn {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+.password__copied-text {
+    visibility: hidden;
+    color: var(--green-200);
+}
+
+.password-display button {
+    color: var(--green-200);
+}
+
+input::placeholder {
+    color: var(--grey-700);
+}
+
+/* ——————————————password options—————————————— */
+
+.password__options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    background-color: var(--grey-800);
+
+    padding: 16px;
+}
+
+.password__slider-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.password__slider-container div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.password__slider-container div > p {
+    font-size: var(--text-preset-4-size);
+    color: var(--grey-200);
+}
+
+.password__slider-container div > span {
+    font-size: var(--text-preset-2-size);
+    color: var(--green-200);
+}
+
+/* input range 设置 */
+.password__slider[type="range"] {
+
+    /* slider bar 清除浏览器默认滑块样式 */
+    -webkit-appearance: none;
+    appearance: none;
+
+    /* 设置滑动块内容 */
+    width: 100%;
+    height: 8px;
+    border-radius: 4px;
+    
+    /* 预设JS渐变过度条 */
+    background: linear-gradient(to right, #a4ffaf 50%, #18171f 50%);
+}
+
+/* slider bar 圆点滑块 */
+.password__slider[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+
+    width: 28px;
+    height: 28px;
+    background: var(--grey-200);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.password__slider[type="range"]::-webkit-slider-thumb:hover {
+    background: var(--grey-850);
+    border: 2px solid var(--green-200);
+}
+
+.password__checkbox-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.password__checkbox-container div {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    gap: 16px;
+}
+
+/* input checkbox 设置 */
+.password__checkbox[type="checkbox"] {
+    
+    /* 重置浏览器复选框样式 */
+    -webkit-appearance: none;
+    appearance: none;
+
+    /* 重绘复选框 */
+    width: 20px;
+    height: 20px;
+    border: 2px white solid;
+    background-image: url(starter-code/assets/images/icon-check.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 60%;
+
+    /* 未选中复选框时，勾选图表svg不显示 */
+    background-size: 0%;
+    
+    cursor: pointer;
+}
+
+.password__checkbox[type="checkbox"]:checked {
+    background-color: var(--green-200);
+    border-color: var(--green-200);
+
+    background-size: 90%;
+}
+
+.password__checkbox[type="checkbox"]:hover {
+    border-color: var(--green-200);
+}
+
+
+.password__checkbox-text {
+    font-size: var(--text-preset-4-size);
+    line-height: var(--text-preset-4-line-height);
+
+}
+
+.password__strength-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.password__strength-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--grey-850);
+
+    padding: 14px 16px;
+}
+
+.password__strength-label {
+    font-size: var(--text-preset-4-size);
+    color: var(--grey-600);
+}
+
+.password__strength {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.password__strength-text {
+    visibility: hidden;
+}
+
+.password__strength-bars {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.password__strength-bars .bar {
+    width: 10px;
+    height: 28px;
+    border: 2px white solid;
+}
+
+.password-return-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    background-color: var(--green-200);
+    width: 100%;
+
+    padding: 16px;
+}
+
+/* ——————————————媒体查询tablet—————————————— */
+
+@media (min-width: 768px) {
+    .header-text {
+        margin-bottom: 32px;
+    }
+
+    .container {
+        max-width: 540px;
+        gap: 24px;
+    }
+
+    .password-display {
+        padding: 16px 32px;
+    }
+
+    .password-display input {
+        font-size: var(--text-preset-1-size);
+    }
+
+    .password-display-btn {
+        top: 28px;
+        right: 32px;
+    }
+
+    .password__options-container {
+        padding: 24px 32px;
+    }
+
+    .password__slider-container {
+        gap: 16px;
+    }
+
+    .password__slider-container div > p {
+        font-size: var(--text-preset-3-size);
+    }
+
+    .password__slider-container div > span {
+        font-size: var(--text-preset-1-size);
+    }
+
+    .password__strength-container {
+        gap: 32px;
+    }
+}
+
+
+/* ——————————————active—————————————— */
+
+.password-display button:hover {
+    color: white;
+}
+
+.password-display button:active {
+    color: var(--green-200);
+}
+
+/* ——————————————JS CSS set—————————————— */
+
+.password__copied-text.show-copied {
+    visibility: visible;
+}
+
+.password__strength-text.show-strength {
+    visibility: visible;
+}
+
+.bar.strength{
+    border: var(--yellow-300) solid 2px;
+    background-color: var(--yellow-300);
+}
