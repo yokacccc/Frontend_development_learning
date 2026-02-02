@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+    --text-1-s: 24px;
+    --text-2-s: 20px;
+    --text-3-s: 16px;
+    --text-4-s: 14px;
+
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-navy-950: #1c202b;
+    --color-navy-600: #5e6778;
+    --color-navy-500: #939cad;
+    --color-navy-100: #dde7ee;
+    --color-navy-50: #f7fafd;
+    --color-blue-950: #0a327b;
+    --color-blue-100: #e5effa;
+    --color-red-500: #f65552;
+}
+
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 500;
+    line-height: 125%;
+}
