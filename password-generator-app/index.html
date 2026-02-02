@@ -41,8 +41,8 @@
                         class="password__slider"
                         name="range-length"
                         min="0"
-                        max="16"
-                        value="8"
+                        max="15"
+                        value="7"
                     />
                 </div>
                 <div class="password__checkbox-container">
@@ -52,6 +52,7 @@
                             name="option"
                             id="uppercase-option"
                             class="password__checkbox"
+                            data-type="uppercase"
                         />
                         <label for="uppercase-option" class="password__checkbox-text"
                             >Include Uppercase Letters</label
@@ -63,6 +64,7 @@
                             name="option"
                             id="lowercase-option"
                             class="password__checkbox"
+                            data-type="lowercase"
                         />
                         <label for="lowercase-option" class="password__checkbox-text"
                             >Include Lowercase Letters</label
@@ -74,6 +76,7 @@
                             name="option"
                             id="number-option"
                             class="password__checkbox"
+                            data-type="numbers"
                         />
                         <label for="number-option" class="password__checkbox-text"
                             >Include Numbers</label
@@ -85,6 +88,7 @@
                             name="option"
                             id="symbols-option"
                             class="password__checkbox"
+                            data-type="symbols"
                         />
                         <label for="symbols-option" class="password__checkbox-text"
                             >Include Symbols</label
